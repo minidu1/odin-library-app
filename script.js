@@ -14,3 +14,9 @@ function Book(title, author, pages){
 function addBookToLibrary(title, author, pages) {
     myLibrary.push(new Book(title, author, pages))
 }
+
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310)
+addBookToLibrary("1984", "George Orwell", 328)
+addBookToLibrary("Brave New World", "Aldous Huxley", 288)
+
+myLibrary.forEach(book => console.log(book))
