@@ -1,0 +1,44 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, p, figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+body{
+    font-family: system-ui, sans-serif;
+}
+
+.book-card{
+  width: 250px;
+  height: 300px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: rgb(240, 240, 240);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.name{
+    font-size: 25px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-align: center;
+    color: #333;              
+    margin-bottom: 8px;       
+    text-transform: capitalize;
+    height: 60px;
+    
+}
+
+.content{
+    text-align: left;
+    padding: 10px;
+}
