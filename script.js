@@ -30,7 +30,14 @@ library.appendChild(card)
 const bookName =  document.createElement("div")
 bookName.classList.add("name")
 card.appendChild(bookName)
+bookName.textContent = "book name"
 
-const content = document.createElement("div")
-content.classList.add("content")
-card.appendChild(content)
+const author = document.createElement("div")
+author.classList.add("content")
+card.appendChild(author)
+author.textContent = "author"
+
+const pages = document.createElement("div")
+pages.classList.add("content")
+card.appendChild(pages)
+pages.textContent = "xxx pages"
