@@ -122,8 +122,10 @@ form{
   width: 400px;
   height: auto;
   
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
+
+  display: none;
 }
 
 .form-head{
