@@ -27,6 +27,7 @@ header{
 }
 
 button{
+  height: 45px;
   padding: 10px;
   border-radius: 8px;
   color: var(--background-color);
@@ -114,19 +115,53 @@ form{
   border-radius: 8px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 
-  height: auto;
-  width: 400px;
-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  width: 400px;
+  height: auto;
   
-  
+  display: flex;
+  flex-direction: column;
 }
 
 .form-head{
   padding: 10px;
   text-align: center;
+}
+
+.form-body{
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 10px;
+  align-items: center;
+  height: 250px;
+}
+
+.form-row{
+  display: contents;
+}
+
+label{
+  text-align: right;
+  font-weight: 600;
+  color: #333;
+}
+
+input{
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  width: 90%;
+}
+
+.submit-section{
+  display: flex;
+  justify-content: space-around;
+  height: 60px;
 }
 
 .add-book {
