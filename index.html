@@ -1,27 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library App</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <h1>Odin Library</h1>
-        <button class="add-book" >+ Add New Book</button>
+        <button class="open-add-book">+ Add New Book</button>
     </header>
 
     <main>
         <div class="library"></div>
 
-        <div class="form-container">
-            <h2 class="form-head">Add New Book</h2>
-            <hr>
-            <div class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit eligendi esse ducimus reprehenderit incidunt fuga, perspiciatis, quos, eum obcaecati amet vitae minima. Quas nostrum, sed magni nam commodi nisi quidem aliquid aperiam expedita, doloremque id iure accusamus at! Quasi blanditiis deserunt quisquam eos obcaecati animi consequatur quod distinctio sint fugiat, velit, molestiae voluptatibus, unde ipsum! Nobis ducimus dolorum quia, et ullam sunt sed eum excepturi eveniet at aut iste, perspiciatis recusandae modi unde doloremque? Doloribus aliquid itaque excepturi voluptatibus magni.</div>
+        <div class="form">
+
+             <form action="#" method="post">
+                <div class="form-head">
+                    <h2 class="form-head">Add New Book</h2>
+                </div>
+
+                <hr>
+
+                <div class="form-body">
+                        <label for="book-name">Book Name :</label>
+                        <br>
+                        <input type="text" id="book-name" name="book-name" placeholder="The hobbit" required>
+                        <br>
+                        <label for="author">Author :</label>
+                        <br>
+                        <input type="text" id="author" name="author" placeholder="J.R.R. Tolkein">
+                        <br>
+                        <label for="gages">Pages :</label>
+                        <br>
+                        <input type="number" placeholder="310">
+                </div>
+
+                <hr>
+
+                <div class="submit-section">
+                    <button class="add-book">Add Book</button>
+                    <button class="cancel-button">Cancel</button>
+                </div>
+                
+            </form>
+            </div>
         </div>
     </main>
-    
+
     <script src="script.js"></script>
 </body>
+
 </html>

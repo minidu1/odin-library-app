@@ -28,11 +28,26 @@ header{
 
 button{
   padding: 10px;
-  border: 1px solid #ccc;
   border-radius: 8px;
   color: var(--background-color);
   background-color: rgb(38, 34, 34);
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.6em 1.2em;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.open-add-book:hover {
+  background-color: #1d4ed8;
+}
+
+.open-add-book:active {
+  transform: scale(0.97);
 }
 
 h1{
@@ -40,6 +55,17 @@ h1{
   color: #333;
   text-decoration: underline;
   padding: 30px;
+}
+
+hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+
+main{
+
 }
 
 .library{
@@ -78,4 +104,53 @@ h1{
 .content{
     text-align: left;
     padding: 10px;
+}
+
+form{
+  position: fixed;
+  border:1px #333 solid ;
+  background-color: azure;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+
+  height: auto;
+  width: 400px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  
+}
+
+.form-head{
+  padding: 10px;
+  text-align: center;
+}
+
+.add-book {
+  background-color: #2563eb; /* blue */
+  color: white;
+}
+
+.add-book:hover {
+  background-color: #1d4ed8;
+}
+
+.add-book:active {
+  transform: scale(0.97);
+}
+
+.cancel-button {
+  background-color: #e5e7eb; /* light gray */
+  color: #111827;
+}
+
+.cancel-button:hover {
+  background-color: #d1d5db;
+}
+
+.cancel-button:active {
+  transform: scale(0.97);
 }
