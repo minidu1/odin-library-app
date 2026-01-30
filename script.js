@@ -1,5 +1,5 @@
 const myLibrary = []
-
+let currentBook = 0
 
 // variables
 const library = document.querySelector(".library")
@@ -26,7 +26,9 @@ function addBookToLibrary(title, author, pages) {
 }
 
 const displayBooks = function () {
-    myLibrary.forEach((book) => {
+    let lastBook = myLibrary.length -1
+    while (currentBook <= lastBook) {
+        let book = myLibrary[currentBook]
 
         const card = document.createElement("div")
         card.classList.add("book-card")
@@ -46,8 +48,9 @@ const displayBooks = function () {
         pages.classList.add("content")
         card.appendChild(pages)
         pages.textContent = `${book.pages} pages`
-
-    })
+        
+        currentBook += 1
+    }
 }
 
 function closeForm() {
@@ -61,23 +64,23 @@ function addNewBook(event) {
     let author = event.target["author"].value.trim()
     let pages = Number(event.target["pages"].value)
 
-    if(title === "" || title == null){
+    if (title === "" || title == null) {
         window.alert("Is this book called 'John cena'?")
     }
-    else if(isNaN(pages) || pages < 0) {
+    else if (isNaN(pages) || pages < 0) {
         window.alert("Enter valid positive page number")
     }
 
-    else{
-        if(pages == 0) {
-        pages = "Unknown"
+    else {
+        if (pages == 0) {
+            pages = "Unknown"
         }
 
-        if(author === ""){
-        author = "Unknown Author"
+        if (author === "") {
+            author = "Unknown Author"
         }
-        
-        addBookToLibrary(title,author,pages)
+
+        addBookToLibrary(title, author, pages)
         displayBooks()
         closeForm()
     }
@@ -89,11 +92,11 @@ addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310)
 addBookToLibrary("1984", "George Orwell", 328)
 addBookToLibrary("Brave New World", "Aldous Huxley", 288)
 
-openFormBtn.addEventListener("click", () =>{
+openFormBtn.addEventListener("click", () => {
     bookForm.style.display = 'block';
 })
 
-closeFormBtn.addEventListener("click", closeForm )
+closeFormBtn.addEventListener("click", closeForm)
 
 form.addEventListener("submit", addNewBook)
 

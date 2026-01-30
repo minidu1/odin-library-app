@@ -64,11 +64,6 @@ hr {
   border-top: 1px solid #ccc;
 }
 
-
-main{
-
-}
-
 .library{
   display: grid;
   grid-template-columns: repeat(
