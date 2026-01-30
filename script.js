@@ -1,5 +1,14 @@
 const myLibrary = []
 
+
+// variables
+const library = document.querySelector(".library")
+const bookForm = document.querySelector("form")
+
+const openFormBtn = document.querySelector(".open-add-book")
+const closeFormBtn = document.querySelector(".cancel-button")
+const form = document.querySelector("form")
+
 // functions
 function Book(title, author, pages) {
     if (!new.target) {
@@ -41,12 +50,39 @@ const displayBooks = function () {
     })
 }
 
-// variables
-const library = document.querySelector(".library")
-const bookForm = document.querySelector("form")
+function closeForm() {
+    bookForm.style.display = "none";
+    form.reset()
+}
 
-const openFormBtn = document.querySelector(".open-add-book")
-const closeFormBtn = document.querySelector(".cancel-button")
+function addNewBook(event) {
+    event.preventDefault();
+    const title = event.target["book-name"].value.trim()
+    let author = event.target["author"].value.trim()
+    let pages = Number(event.target["pages"].value)
+
+    if(title === "" || title == null){
+        window.alert("Is this book called 'John cena'?")
+    }
+    else if(isNaN(pages) || pages < 0) {
+        window.alert("Enter valid positive page number")
+    }
+
+    else{
+        if(pages == 0) {
+        pages = "Unknown"
+        }
+
+        if(author === ""){
+        author = "Unknown Author"
+        }
+        
+        addBookToLibrary(title,author,pages)
+        displayBooks()
+        closeForm()
+    }
+}
+
 
 // code 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310)
@@ -57,8 +93,8 @@ openFormBtn.addEventListener("click", () =>{
     bookForm.style.display = 'block';
 })
 
-closeFormBtn.addEventListener("click", () =>{
-    bookForm.style.display = "none";
-} )
+closeFormBtn.addEventListener("click", closeForm )
+
+form.addEventListener("submit", addNewBook)
 
 displayBooks()
