@@ -43,6 +43,30 @@ button{
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
+.delete-button {
+  background-color: #ff4d4d; /* red for delete */
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  margin: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.delete-button:hover {
+  background-color: #ff1a1a; /* darker red on hover */
+  transform: scale(1.05);    /* subtle grow effect */
+}
+
+.delete-button:active {
+  transform: scale(0.95);    /* shrink slightly when clicked */
+  opacity: 0.9;
+}
+
+
 .open-add-book:hover {
   background-color: #1d4ed8;
 }

@@ -39,6 +39,8 @@ const displayBooks = function () {
         card.appendChild(bookName)
         bookName.textContent = book.title
 
+        card.appendChild(document.createElement("hr"))
+
         const author = document.createElement("div")
         author.classList.add("content")
         card.appendChild(author)
@@ -48,6 +50,15 @@ const displayBooks = function () {
         pages.classList.add("content")
         card.appendChild(pages)
         pages.textContent = `${book.pages} pages`
+
+        card.appendChild(document.createElement("hr"))
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("delete-button");
+        deleteBtn.textContent = "Delete";
+        card.appendChild(deleteBtn);
+
+        card.dataset.index = currentBook
         
         currentBook += 1
     }
