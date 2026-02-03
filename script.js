@@ -25,14 +25,33 @@ function addBookToLibrary(title, author, pages) {
     myLibrary.push(new Book(title, author, pages))
 }
 
+function deleteBook(id, card) {
+
+    function getIndex(book) {
+        return book.id === id
+    }
+    const index = myLibrary.findIndex(getIndex)
+    if(index !== -1){
+    myLibrary.splice(index,1)
+    card.remove()
+    currentBook -=1
+    }
+    else{
+        alert("No book found")
+    }
+}
+
 const displayBooks = function () {
-    let lastBook = myLibrary.length -1
+    let lastBook = myLibrary.length - 1
     while (currentBook <= lastBook) {
         let book = myLibrary[currentBook]
 
         const card = document.createElement("div")
         card.classList.add("book-card")
         library.appendChild(card)
+
+        card.dataset.id = book.id
+        const id = (card.dataset.id)
 
         const bookName = document.createElement("div")
         bookName.classList.add("name")
@@ -58,8 +77,10 @@ const displayBooks = function () {
         deleteBtn.textContent = "Delete";
         card.appendChild(deleteBtn);
 
-        card.dataset.index = currentBook
-        
+        deleteBtn.addEventListener("click", () => {
+            deleteBook(id, card)
+        })
+
         currentBook += 1
     }
 }
