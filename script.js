@@ -72,14 +72,23 @@ const displayBooks = function () {
 
         card.appendChild(document.createElement("hr"))
 
+        const footer = document.createElement("div")
+        footer.classList.add("card-footer")
+        card.appendChild(footer)
+
         const deleteBtn = document.createElement("button");
         deleteBtn.classList.add("delete-button");
         deleteBtn.textContent = "Delete";
-        card.appendChild(deleteBtn);
+        footer.appendChild(deleteBtn);
 
         deleteBtn.addEventListener("click", () => {
             deleteBook(id, card)
         })
+
+        const readBtn = document.createElement("button")
+        readBtn.classList.add("read-button")
+        readBtn.textContent = "Read"
+        footer.appendChild(readBtn)
 
         currentBook += 1
     }
