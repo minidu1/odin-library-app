@@ -84,11 +84,25 @@ const displayBooks = function () {
         deleteBtn.addEventListener("click", () => {
             deleteBook(id, card)
         })
-
+        
+        let read = true
         const readBtn = document.createElement("button")
         readBtn.classList.add("read-button")
         readBtn.textContent = "Read"
         footer.appendChild(readBtn)
+
+        readBtn.addEventListener("click", ()=>{
+            if (read){
+                readBtn.classList.remove("read-button")
+                readBtn.classList.add("not-read-button")
+                read = false
+            }
+            else{
+                readBtn.classList.remove("not-read-button")
+                readBtn.classList.add("read-button")
+                read = true
+            }
+        })
 
         currentBook += 1
     }
