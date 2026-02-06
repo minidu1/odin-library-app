@@ -10,7 +10,7 @@ const closeFormBtn = document.querySelector(".cancel-button")
 const form = document.querySelector("form")
 
 // functions
-function Book(title, author, pages) {
+function Book(title, author, pages, read) {
     if (!new.target) {
         throw Error("you need to use 'new' operator to call the constructor")
     }
@@ -19,10 +19,11 @@ function Book(title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = read
 }
 
-function addBookToLibrary(title, author, pages) {
-    myLibrary.push(new Book(title, author, pages))
+function addBookToLibrary(title, author, pages, read) {
+    myLibrary.push(new Book(title, author, pages, read))
 }
 
 function deleteBook(id, card) {
@@ -31,13 +32,31 @@ function deleteBook(id, card) {
         return book.id === id
     }
     const index = myLibrary.findIndex(getIndex)
-    if(index !== -1){
-    myLibrary.splice(index,1)
-    card.remove()
-    currentBook -=1
+    if (index !== -1) {
+        myLibrary.splice(index, 1)
+        card.remove()
+        currentBook -= 1
+    }
+    else {
+        alert("No book found")
+    }
+}
+
+function readBook(readBtn, book) {
+    if (book.read) {
+        readBtn.classList.remove("not-read-button")
+        readBtn.classList.add("read-button")
+        readBtn.textContent = "Read"
+        book.read = !book.read
+    }
+    else if (!book.read) {
+        readBtn.classList.remove("read-button")
+        readBtn.classList.add("not-read-button")
+        readBtn.textContent = "Not Read"
+        book.read = !book.read
     }
     else{
-        alert("No book found")
+        alert("read status not work")
     }
 }
 
@@ -84,24 +103,13 @@ const displayBooks = function () {
         deleteBtn.addEventListener("click", () => {
             deleteBook(id, card)
         })
-        
-        let read = true
+
         const readBtn = document.createElement("button")
-        readBtn.classList.add("read-button")
-        readBtn.textContent = "Read"
+        readBook(readBtn, book)
         footer.appendChild(readBtn)
 
-        readBtn.addEventListener("click", ()=>{
-            if (read){
-                readBtn.classList.remove("read-button")
-                readBtn.classList.add("not-read-button")
-                read = false
-            }
-            else{
-                readBtn.classList.remove("not-read-button")
-                readBtn.classList.add("read-button")
-                read = true
-            }
+        readBtn.addEventListener("click", () => {
+            readBook(readBtn, book)
         })
 
         currentBook += 1
@@ -118,6 +126,8 @@ function addNewBook(event) {
     const title = event.target["book-name"].value.trim()
     let author = event.target["author"].value.trim()
     let pages = Number(event.target["pages"].value)
+    const read = event.target["read"].checked
+
 
     if (title === "" || title == null) {
         window.alert("Is this book called 'John cena'?")
@@ -135,17 +145,18 @@ function addNewBook(event) {
             author = "Unknown Author"
         }
 
-        addBookToLibrary(title, author, pages)
+        addBookToLibrary(title, author, pages, read)
         displayBooks()
         closeForm()
     }
+
 }
 
 
 // code 
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310)
-addBookToLibrary("1984", "George Orwell", 328)
-addBookToLibrary("Brave New World", "Aldous Huxley", 288)
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true)
+addBookToLibrary("1984", "George Orwell", 328, true)
+addBookToLibrary("Brave New World", "Aldous Huxley", 288, true)
 
 openFormBtn.addEventListener("click", () => {
     bookForm.style.display = 'block';

@@ -173,9 +173,6 @@ form{
   width: 400px;
   height: auto;
   
-  /* display: flex;
-  flex-direction: column; */
-
   display: none;
 }
 
@@ -194,6 +191,10 @@ form{
 
 .form-row{
   display: contents;
+}
+
+.read-status{
+  align-items: left;
 }
 
 label{
