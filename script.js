@@ -59,13 +59,8 @@ function readBook(readBtn, book) {
         alert("read status not work")
     }
 }
-
-const displayBooks = function () {
-    let lastBook = myLibrary.length - 1
-    while (currentBook <= lastBook) {
-        let book = myLibrary[currentBook]
-
-        const card = document.createElement("div")
+function showCard(book) {
+    const card = document.createElement("div")
         card.classList.add("book-card")
         library.appendChild(card)
 
@@ -111,9 +106,10 @@ const displayBooks = function () {
         readBtn.addEventListener("click", () => {
             readBook(readBtn, book)
         })
+}
 
-        currentBook += 1
-    }
+const displayBooks = function () {
+    myLibrary.forEach(book => showCard(book))
 }
 
 function closeForm() {
