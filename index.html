@@ -15,36 +15,34 @@
     </header>
 
     <main>
-        <div class="library"> 
-            <!-- librariya athulata form eka damme -->
-
-            <form action="#" method="post">
-                <div class="form-head">
-                    <h2 class="form-head">Add New Book</h2>
+        <form action="#" method="post">
+            <div class="form-head">
+                <h2 class="form-head">Add New Book</h2>
+            </div>
+            <hr>
+            <div class="form-body">
+                <div class="form-row">
+                    <label for="book-name">Book Name :</label>
+                    <input type="text" id="book-name" name="book-name" placeholder="The hobbit">
                 </div>
-                <hr>
-                <div class="form-body">
-                    <div class="form-row">
-                        <label for="book-name">Book Name :</label>
-                        <input type="text" id="book-name" name="book-name" placeholder="The hobbit">
-                    </div>
-                    <div class="form-row">
-                        <label for="author">Author :</label>
-                        <input type="text" id="author" name="author" placeholder="J.R.R. Tolkein">
-                    </div>
-                    <div class="form-row">
-                        <label for="pages">Pages :</label>
-                        <input type="number" name = "pages" placeholder="310">
-                        <input type="checkbox" name = "read" checked> I have readed this book
-                    </div>
+                <div class="form-row">
+                    <label for="author">Author :</label>
+                    <input type="text" id="author" name="author" placeholder="J.R.R. Tolkein">
                 </div>
-                <hr>
-                <div class="submit-section">
-                    <button class="add-book">Add Book</button>
-                    <button type="button" class="cancel-button">Cancel</button>
+                <div class="form-row">
+                    <label for="pages">Pages :</label>
+                    <input type="number" name="pages" placeholder="310">
+                    <input type="checkbox" name="read" checked> I have readed this book
                 </div>
-            </form>
-
+            </div>
+            <hr>
+            <div class="submit-section">
+                <button class="add-book">Add Book</button>
+                <button type="button" class="cancel-button">Cancel</button>
+            </div>
+        </form>
+        <div class="library">
+            <!-- book cards will go here -->
         </div>
     </main>
 

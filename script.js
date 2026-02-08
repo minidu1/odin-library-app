@@ -26,7 +26,7 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(new Book(title, author, pages, read))
 }
 
-function deleteBook(id, card) {
+function deleteBook(id) {
 
     function getIndex(book) {
         return book.id === id
@@ -34,8 +34,7 @@ function deleteBook(id, card) {
     const index = myLibrary.findIndex(getIndex)
     if (index !== -1) {
         myLibrary.splice(index, 1)
-        card.remove()
-        currentBook -= 1
+        displayBooks()
     }
     else {
         alert("No book found")
@@ -109,6 +108,7 @@ function showCard(book) {
 }
 
 const displayBooks = function () {
+    library.innerHTML = ""
     myLibrary.forEach(book => showCard(book))
 }
 
